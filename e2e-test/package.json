@@ -13,13 +13,19 @@
   "scripts": {
     "test:e2e": "cypress open",
     "report": "node cypress-runner -b chrome",
-    "feature": "cypress run --spec **/*.feature"
+    "feature": "cypress run --spec **/*.feature --browser chrome"
   },
   "name": "e2e-test",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

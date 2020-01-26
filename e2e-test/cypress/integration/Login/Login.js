@@ -1,6 +1,6 @@
 import { Before, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 
-Before(() => {
+Before({ tags: "@loginpage" }, () => {
   cy.visit('');
 });
 

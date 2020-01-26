@@ -1,9 +1,17 @@
 {
   "dependencies": {
-    "cypress": "^3.8.3"
+    "cypress": "^3.8.3",
+    "ls": "^0.2.1",
+    "mocha": "5.2.0",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.0.0",
+    "mochawesome-report-generator": "^4.1.0",
+    "rimraf": "^3.0.0",
+    "yargs": "^15.1.0"
   },
   "scripts": {
-    "test:e2e": "cypress open"
+    "test:e2e": "cypress open",
+    "report": "node cypress-runner -b chrome"
   },
   "name": "e2e-test",
   "version": "1.0.0",

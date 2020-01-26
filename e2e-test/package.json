@@ -1,25 +1,18 @@
 {
-  "dependencies": {
-    "cypress": "^3.8.3",
-    "cypress-cucumber-preprocessor": "^2.0.1",
-    "ls": "^0.2.1",
-    "mocha": "5.2.0",
-    "mochawesome": "^4.1.0",
-    "mochawesome-merge": "^4.0.0",
-    "mochawesome-report-generator": "^4.1.0",
-    "multiple-cucumber-html-reporter": "^1.13.2",
-    "rimraf": "^3.0.0",
-    "yargs": "^15.1.0"
-  },
-  "scripts": {
-    "test:e2e": "cypress open",
-    "report": "node cypress-runner -b chrome",
-    "feature": "cypress run --spec **/*.feature --browser chrome",
-    "report:cucumber": "node gen-report.js"
-  },
   "name": "e2e-test",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "cypress open",
+    "test": "cypress run --spec **/*.feature --browser chrome",
+    "report": "node gen-report.js",
+    "test:report": "yarn test && yarn report"
+  },
+  "dependencies": {
+    "cypress": "^3.8.3",
+    "cypress-cucumber-preprocessor": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^1.13.2"
+  },
   "license": "MIT",
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,

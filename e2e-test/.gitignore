@@ -1,0 +1,6 @@
+yarn-error.log
+node_modules
+cypress/report
+cypress/videos
+cypress/cucumber-json
+cypress/cucumber-report

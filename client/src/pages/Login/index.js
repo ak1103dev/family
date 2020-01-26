@@ -40,17 +40,17 @@ function LoginPage() {
     <Container>
       <h1>Login</h1>
       <Form id="login-form" onSubmit={handleSubmit(onSubmit)}>
-        <input name="username" className="username" placeholder="username" ref={register({ required: true })} />
-        <ErrorMessage className="username-error">
+        <input data-testid="username" name="username" placeholder="username" ref={register({ required: true })} />
+        <ErrorMessage data-testid="username-error">
           {errors.username && 'username is required.'}
         </ErrorMessage>
 
-        <input name="password" className="password" placeholder="password" type="password" ref={register({ required: true })} />
-        <ErrorMessage className="password-error">
+        <input data-testid="password" name="password" placeholder="password" type="password" ref={register({ required: true })} />
+        <ErrorMessage data-testid="password-error">
           {errors.password && 'password is required.'}
         </ErrorMessage>
 
-        <ErrorMessage className="login-error">
+        <ErrorMessage data-testid="login-error">
           {errorMessage}
         </ErrorMessage>
 

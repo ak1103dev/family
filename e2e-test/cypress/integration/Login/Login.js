@@ -1,17 +1,31 @@
-import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
- 
-Given('I am on the homepage', () => {
+import { Before, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
+
+Before(() => {
   cy.visit('');
 });
 
-When('I fill the search input with the {string} term', (term) => {
-  cy.get('.search-field').type(term);
+When('I fill username as {string} and password as {string}', (username, password) => {
+  if (username) {
+    cy.get('[data-testid=username]').type(username);
+  }
+  if (password) {
+    cy.get('[data-testid=password]').type(password);
+  }
 });
 
-Then('the book {string} should be visible on the list in the shopping cart', (bookName) => {
-  cy.get('div[data-testid="shoppingCart"]').contains(bookName).as('addedBook');
+And('I click on the login button', () => {
+  cy.get('#login-form').submit();
 });
- 
-And('I should be able to add more items of the same type', () => {
-  cy.get('@addedBook').find('button[data-testid="addButton"]')
-});
+
+Then('I should be seen message {string} and {string}', (usernameError, passwordError) => {
+  cy.get('[data-testid=username-error]').should('be.text', usernameError);
+  cy.get('[data-testid=password-error]').should('be.text', passwordError);
+})
+
+Then('I should be redirected to a dashboard page', () => {
+  cy.get('h1').should('be.text', 'Dashboard');
+})
+
+Then('I should be seen message as {string}', (message) => {
+  cy.get('[data-testid=login-error]').should('be.text', message);
+})

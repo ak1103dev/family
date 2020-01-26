@@ -7,5 +7,6 @@
     "html": false,
     "json": true,
     "timestamp": "mmddyyyy_HHMMss"
-   }
+  },
+  "testFiles": "**/*.feature"
 }

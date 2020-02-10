@@ -10,8 +10,8 @@ report.generate({
     },
     device: 'Local test machine',
     platform: {
-      name: 'windows',
-      version: '8.1'
+      name: 'ubuntu',
+      version: '16.0.4'
     }
   },
   // customData: {

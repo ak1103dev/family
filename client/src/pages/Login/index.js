@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import styled from '@emotion/styled'
+import { useMutation } from '@apollo/react-hooks';
 
-import request from '../../utils/request'
+import { LOGIN } from '../../graphql/user'
 
 const Container = styled.div`
   text-align: center;
@@ -22,15 +23,12 @@ function LoginPage() {
   const [errorMessage, setErrorMessage] = useState('');
   const { register, handleSubmit, errors } = useForm();
   const history = useHistory()
-  const onSubmit = async data => {
+  const [login] = useMutation(LOGIN);
+
+  const onSubmit = async ({ username, password }) => {
     try {
-      if (data.username === 'admin' && data.password === 'password') {
-        const res = await request({ faked: true, resBody: { token: 'xxx', userId: 1 } })
-        history.push('/admin/dashboard')
-        return res
-      }
-      const res = await request({ faked: true, isError: true, resBody: { message: 'Login failed' } })
-      return res
+      await login({ variables: { username, password } })
+      history.push('/admin/dashboard')
     } catch (e) {
       setErrorMessage(e.message)
     }

@@ -7,10 +7,13 @@ import {
   useLocation,
 } from 'react-router-dom';
 import styled from '@emotion/styled'
+import { ApolloProvider } from '@apollo/react-hooks'
+
 import LoginPage from './pages/Login'
 import DashboardPage from './pages/Dashboard'
 import MembersPage from './pages/Members'
 import SideMenu from './components/SideMenu'
+import client from './graphql'
 
 const Container = styled.div`
   display: flex;
@@ -67,19 +70,21 @@ function NoMatch() {
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <LoginPage />
-        </Route>
-        <Route path="/admin">
-          <AdminLayout />
-        </Route>
-        <Route path="*">
-          <NoMatch />
-        </Route>
-      </Switch>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <LoginPage />
+          </Route>
+          <Route path="/admin">
+            <AdminLayout />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 }
 

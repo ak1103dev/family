@@ -39,7 +39,7 @@ function Members() {
   return (
     <Container>
       <h1>Members</h1>
-      <Link to="/admin/members/new" css={css`float: right`}>Create</Link>
+      <Link data-testid="create-member-link" to="/admin/members/new" css={css`float: right`}>Create</Link>
       <Table columns={columns} data={data.getProfileList} />
     </Container>
   )

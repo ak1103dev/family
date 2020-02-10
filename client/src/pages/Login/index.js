@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import { useMutation } from '@apollo/react-hooks';
 
 import { LOGIN } from '../../graphql/user'
+import { getErrorKey, getMessage } from '../../messages'
 
 const Container = styled.div`
   text-align: center;
@@ -27,10 +28,11 @@ function LoginPage() {
 
   const onSubmit = async ({ username, password }) => {
     try {
-      await login({ variables: { username, password } })
+      const data = await login({ variables: { username, password } })
+      console.log(data)
       history.push('/admin/dashboard')
     } catch (e) {
-      setErrorMessage(e.message)
+      setErrorMessage(getMessage(getErrorKey(e.message)))
     }
   };
 

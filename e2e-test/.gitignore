@@ -2,5 +2,6 @@ yarn-error.log
 node_modules
 cypress/report
 cypress/videos
+cypress/screenshots
 cypress/cucumber-json
 cypress/cucumber-report

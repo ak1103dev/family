@@ -12,6 +12,8 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import LoginPage from './pages/Login'
 import DashboardPage from './pages/Dashboard'
 import MembersPage from './pages/Members'
+import CreateMemberPage from './pages/CreateMember'
+
 import SideMenu from './components/SideMenu'
 import client from './graphql'
 
@@ -50,6 +52,9 @@ function AdminLayout() {
           </Route>
           <Route exact path={`${path}/members`}>
             <MembersPage />
+          </Route>
+          <Route exact path={`${path}/members/new`}>
+            <CreateMemberPage />
           </Route>
           <Route path="*">
             <NoMatch />

@@ -54,7 +54,7 @@ function LoginPage() {
           {errorMessage}
         </ErrorMessage>
 
-        <input type="submit" value="submit" />
+        <input type="submit" value="Login" />
       </Form>
     </Container>
   )

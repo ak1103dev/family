@@ -21,3 +21,29 @@ export const GET_PROFILE_LIST = gql`
     }
   }
 `
+
+export const CREATE_PROFILE = gql`
+  mutation (
+    $language: String!,
+    $firstname: String!,
+    $lastname: String!,
+    $nickname: String!,
+    $profileImage: String!,
+    $gender: String!,
+    $birthdate: Date!,
+  ) {
+    createProfile (
+      language: $language,
+      firstname: $firstname,
+      lastname: $lastname,
+      nickname: $nickname,
+      profileImage: $profileImage,
+      gender: $gender,
+      birthdate: $birthdate,
+    ) {
+      _id
+      firstname
+      lastname
+    }
+  }
+`

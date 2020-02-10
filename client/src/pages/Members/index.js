@@ -1,5 +1,8 @@
-import React from 'react'
+/** @jsx jsx */
+// import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { Link } from 'react-router-dom'
+import { css, jsx } from '@emotion/core'
 
 import { GET_PROFILE_LIST } from '../../graphql/user'
 import Table from '../../components/Table'
@@ -36,6 +39,7 @@ function Members() {
   return (
     <Container>
       <h1>Members</h1>
+      <Link to="/admin/members/new" css={css`float: right`}>Create</Link>
       <Table columns={columns} data={data.getProfileList} />
     </Container>
   )

@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "src/bin/server.js",
+  "scripts": {
+    "start": "node src/bin/server.js",
+    "dev": "nodemon src/bin/server.js"
+  },
+  "dependencies": {
+    "apollo-server": "^2.10.0",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.5",
+    "graphql": "^14.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.11"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

@@ -26,7 +26,7 @@ function LoginPage() {
     try {
       if (data.username === 'admin' && data.password === 'password') {
         const res = await request({ faked: true, resBody: { token: 'xxx', userId: 1 } })
-        history.push('/dashboard')
+        history.push('/admin/dashboard')
         return res
       }
       const res = await request({ faked: true, isError: true, resBody: { message: 'Login failed' } })

@@ -1,23 +1,35 @@
-import React from 'react'
+/** @jsx jsx */
+// import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
+import { css, jsx } from '@emotion/core'
 
 const Container = styled.div`
   width: 200px;
-  background-color: red;
+  background-color: darkred;
   min-height: 100vh;
+  color: white;
+  padding: 10px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `
 const Logo = styled.div`
   font-size: 30px;
   font-weight: bold;
+  padding: 10px;
 `
 const Menus = styled.div`
 `
 
-function MenuItem({ to, children }) {
+function MenuItem({ to, children, active }) {
   return (
-    <div>
+    <div css={css`
+      padding: 10px;
+      ${active ? 'background-color: darkgreen' : ''}
+    `}>
       <Link to={to}>{children}</Link>
     </div>
   )
@@ -30,7 +42,11 @@ function SideMenu({ menus }) {
       <Menus>
         {
           menus.map((item) => (
-            <MenuItem key={item.key} to={item.link}>{item.label}</MenuItem>
+            <MenuItem
+              key={item.key}
+              to={item.link}
+              active={item.active}
+            >{item.label}</MenuItem>
           ))
         }
       </Menus>

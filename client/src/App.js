@@ -18,23 +18,27 @@ import client from './graphql'
 const Container = styled.div`
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
 `
 const Content = styled.div`
   width: calc(100% - 200px);
+  overflow: scroll;
 `
-
-const menus = [{
-  key: 'dashboard',
-  label: 'Dashboard',
-  link: '/admin/dashboard'
-}, {
-  key: 'members',
-  label: 'Members',
-  link: '/admin/members'
-}]
 
 function AdminLayout() {
   const { path } = useRouteMatch();
+  const { pathname } = useLocation();
+  const menus = [{
+    key: 'dashboard',
+    label: 'Dashboard',
+    link: '/admin/dashboard',
+    active: pathname.startsWith('/admin/dashboard'),
+  }, {
+    key: 'members',
+    label: 'Members',
+    link: '/admin/members',
+    active: pathname.startsWith('/admin/members'),
+  }]
 
   return (
     <Container>

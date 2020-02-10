@@ -28,8 +28,8 @@ function LoginPage() {
 
   const onSubmit = async ({ username, password }) => {
     try {
-      const data = await login({ variables: { username, password } })
-      console.log(data)
+      const { data } = await login({ variables: { username, password } })
+      localStorage.setItem('ACCESS_TOKEN', data.login.token)
       history.push('/admin/dashboard')
     } catch (e) {
       setErrorMessage(getMessage(getErrorKey(e.message)))

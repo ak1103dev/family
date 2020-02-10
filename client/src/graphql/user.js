@@ -8,3 +8,16 @@ export const LOGIN = gql`
     }
   }
 `
+
+export const GET_PROFILE_LIST = gql`
+  query ($language: String!) {
+    getProfileList (language: $language) {
+      _id
+      profileImage
+      firstname
+      lastname
+      nickname
+      birthdate
+    }
+  }
+`
